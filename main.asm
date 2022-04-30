@@ -99,10 +99,12 @@ intr_dimensiones:
 	ldx #imp_intr_fil
 	jsr imprime_cadena
 	jsr leer_dim
+	stb filas
 	ldx #imp_intr_fil
 	jsr imprime_cadena
 	jsr leer_dim
-
+	stb columnas
+	
 	bra menu
 ;RELLENAR MATRIZ
 rellenar_matriz:

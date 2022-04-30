@@ -10,7 +10,7 @@ dim .byte 0
 leer_dim:
 	ldb teclado
 	stb dim
-	cmpa #99
+	cmpb #99
 	bge error
 	rts	
 error:
