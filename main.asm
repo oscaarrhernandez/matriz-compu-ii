@@ -56,11 +56,9 @@ pausa:
 
 
 ;variables
-columnas .byte 0
-filas .byte 0
-
-
-matriz .byte 0
+columnas: .byte 0
+filas: .byte 0
+matriz: .byte 0
 
 programa:
 	;cargamos las pilas en direcciones seguras
