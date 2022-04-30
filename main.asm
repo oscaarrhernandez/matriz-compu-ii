@@ -88,7 +88,7 @@ menu:
 	jsr imprime_cadena
 	lda teclado
 
-		bra menu_seleccion
+		bra menu
 
 ;INTRODUCIR DIMENSIONES
 intr_dimensiones:
@@ -104,7 +104,7 @@ intr_dimensiones:
 	jsr imprime_cadena
 	jsr leer_dim
 	stb columnas
-	
+
 	bra menu
 ;RELLENAR MATRIZ
 rellenar_matriz:
