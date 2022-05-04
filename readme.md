@@ -15,6 +15,10 @@ Se solicita:
 3. Almacenar la matriz por filas
 4. Mostrar la matriz por pantalla (imprimir numeros de 3 cifras)
 5. Imprimir cadenas para mostrar mensajes de petición de datos y visualización de resultados
+6. Sumar filas y columnas 
+7. Sumar interior de la matriz 
+8. Comprobar, marco mayor que interior
+9. Matriz marco si o no
 
 
 	- Hacer uso de subrutinas:
