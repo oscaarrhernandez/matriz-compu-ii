@@ -8,21 +8,18 @@
 
 dc: .byte 0
 ud: .byte 0
-;ERROR DIMENSION > 99
-error_dim_99:
-	.asciz "\33[31m\nError, la dimension debe ser menor a 99.\n\33[37m"
-
-;PAUSE
-pausa:
-	.asciz "\33[7m\nPulse cualquier tecla para continuar...\33[0m"
+num : .byte 0 
 
 leer_dim:
-	ldb teclado
-	stb dc
-	lda #10
+	lda teclado
+	sta dc
+	lda teclado
+	ldb #10
 	mul 
-	ldb teclado
-	stb ud
+	std num
+	lda teclado
+	sta ud
+	addd ud
 
 	rts	
 
