@@ -31,9 +31,11 @@ programa:
      ldx #fil
      jsr imprime_cadena
      jsr leer_dim
+     std filas 
      ldx #col
      jsr imprime_cadena 
      jsr leer_dim
+     std columnas
      
 
 
