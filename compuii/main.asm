@@ -23,7 +23,7 @@ col:
 .asciz "\nIntroduce columnas:"
 
 imp_mat:
-	.asiciz "Introduce elementos a la matriz\n"
+	.asciz "Introduce elementos a la matriz\n"
 
 
 programa:
