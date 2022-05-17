@@ -6,6 +6,8 @@
 .globl leer_num
 .globl imprimir_num
 .globl imp_mat
+.globl marco
+
 	;Constantes
 	fin      .equ 0xFF01
 	pantalla .equ 0xFF00
@@ -26,8 +28,11 @@ col:
 .asciz "\nIntroduce columnas:"
 
 imp_intmat:
-	.asciz "\nIntroduce elementos a la matriz\n"
-
+	.asciz "\nIntroduce elementos a la matriz"
+imp_cargamat:
+	.asciz "\nMatriz cargada\n"
+imp_marco:
+	.asciz "\nComprobar si es marco la matriz\n"
 
 programa:
 	;cargamos las pilas en direcciones seguras
@@ -37,15 +42,15 @@ programa:
 	ldx #imp_dim
 	jsr imprime_cadena
 	;filas
-     ldx #fil
-     jsr imprime_cadena
-     jsr leer_dim
-     stb filas
+     	ldx #fil
+     	jsr imprime_cadena
+     	jsr leer_dim
+     	stb filas
 	;columnas 
-     ldx #col
-     jsr imprime_cadena 
-     jsr leer_dim
-     stb columnas
+     	ldx #col
+     	jsr imprime_cadena 
+     	jsr leer_dim
+     	stb columnas
      
 	;cargar_matriz
 	lda filas
@@ -55,8 +60,17 @@ programa:
 	ldx #imp_intmat
 	jsr imprime_cadena
 	jsr carga_mat
+	ldx #imp_cargamat
+	jsr imprime_cadena
+	lda filas
+	ldb columnas
 	jsr imp_mat
-
+	ldx #imp_marco
+	jsr imprime_cadena
+	lda filas
+	ldb columnas
+	jsr marco
+	
 acabar:
 			clra
 			sta fin

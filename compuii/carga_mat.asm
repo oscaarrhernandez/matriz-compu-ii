@@ -11,9 +11,13 @@
 .globl imp_mat
 
 tempb : .word 0
-tam: .word 0;12
-contador: .word 0;0
+tam: .word 0
+contador: .word 0
+contfilas: .word 0
+contcol: .word 0
 numero: .word 0
+columnas: .byte 0
+filas: .byte 0
 dato: .asciz"\nDato: "
 
 carga_mat:
@@ -36,17 +40,45 @@ rts
 
 imp_mat:
 	ldy #m
-	ldd #0
-	std contador
-bucleimp:
-	ldx #dato
-	jsr imprime_cadena
-	ldd ,y++
-	jsr imprimir_num
-	ldd contador
-	addd #1
-	std contador
-	cmpd tam
-	bne bucleimp	
+	sta filas
+	stb columnas
+	clra
+	clrb
+buclefilimp:
+	ldb contfilas
+	cmpb filas
+	bge fin_filas
+	ldb #0
+	stb contcol
+	buclecolimp:
+		ldb contcol
+		cmpb columnas
+		bge fin_col
+		clrb
+		ldb #'\t
+		stb pantalla
+		ldd #0
+		ldd ,y++
+		jsr imprimir_num
+		ldd #0
+		ldb contcol
+		incb 
+		stb contcol
+		bra buclecolimp
+	fin_col:
+	clrb
+	ldb #'\n
+	stb pantalla
+	
+	ldb contfilas
+	incb
+	stb contfilas
+	bra buclefilimp
+	fin_filas:
+	ldb #0
+	stb contfilas
+	ldb #0
+	stb contcol
+	
 rts	
 	

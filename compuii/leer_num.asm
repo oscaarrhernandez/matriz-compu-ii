@@ -25,6 +25,7 @@ leer_num:
 	subb #'0
 	clra
 	addd temp
-
+	std temp
+	
 	rts	
 
