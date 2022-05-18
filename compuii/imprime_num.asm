@@ -1,15 +1,19 @@
-.module imprime_num
+.module imprimir_num
 
 	pantalla .equ 0xFF00
 	teclado  .equ 0xFF02
 
-.globl imprime_num
+.globl imprimir_num
 
 tempb : .byte 0
 
-imprime_num:
+imprimir_num:
+
 
 	tfr d,x
+	clrb
+	stb tempb
+	tfr x,d
 	cmpd #800
      	blo Menor800
      	clrb

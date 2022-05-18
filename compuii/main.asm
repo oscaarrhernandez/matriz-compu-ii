@@ -7,6 +7,7 @@
 .globl imprimir_num
 .globl imp_mat
 .globl marco
+.globl maximo
 
 	;Constantes
 	fin      .equ 0xFF01
@@ -18,6 +19,7 @@
 ;variables
 columnas: .byte 0
 filas: .byte 0
+filmax: .byte 0
 elementos: .word 0
 imp_dim:
 	.asciz "Introduce filas x columnas\n"
@@ -33,7 +35,9 @@ imp_cargamat:
 	.asciz "\nMatriz cargada\n"
 imp_marco:
 	.asciz "\nComprobar si es marco la matriz\n"
-
+imp_max:
+	.asciz "\nIntroduce fila para saber su maximo"
+					
 programa:
 	;cargamos las pilas en direcciones seguras
 	lds #pilaS
@@ -70,6 +74,13 @@ programa:
 	lda filas
 	ldb columnas
 	jsr marco
+	ldx #imp_max
+	jsr imprime_cadena
+	jsr leer_dim
+	
+	lda columnas
+	stb filmax
+	jsr maximo
 	
 acabar:
 			clra
