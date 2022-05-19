@@ -21,6 +21,7 @@ columnas: .byte 0
 filas: .byte 0
 filmax: .byte 0
 elementos: .word 0
+suma: .word 0
 imp_dim:
 	.asciz "Introduce filas x columnas\n"
 fil:
@@ -36,7 +37,7 @@ imp_cargamat:
 imp_marco:
 	.asciz "\nComprobar si es marco la matriz\n"
 imp_max:
-	.asciz "\nIntroduce fila para saber su maximo"
+	.asciz "\nIntroduce fila para saber su maximo:"
 					
 programa:
 	;cargamos las pilas en direcciones seguras
@@ -63,7 +64,9 @@ programa:
 	std elementos
 	ldx #imp_intmat
 	jsr imprime_cadena
+
 	jsr carga_mat
+	std suma
 	ldx #imp_cargamat
 	jsr imprime_cadena
 	lda filas
@@ -73,14 +76,16 @@ programa:
 	jsr imprime_cadena
 	lda filas
 	ldb columnas
+	ldd suma
 	jsr marco
-	ldx #imp_max
-	jsr imprime_cadena
-	jsr leer_dim
 	
-	lda columnas
-	stb filmax
-	jsr maximo
+	;ldx #imp_max
+	;jsr imprime_cadena
+	;jsr leer_dim
+	
+	;lda columnas
+	;stb filmax
+	;jsr maximo
 	
 acabar:
 			clra
