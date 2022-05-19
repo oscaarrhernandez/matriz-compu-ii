@@ -9,14 +9,16 @@ Maneja una matriz de m·n, las dimensiones de las filas y columnas pueden ser de
 
 
 Se solicita:
-	Leer las dimensiones, 2 cifras
+
+1. Leer, almacenar y mostrar por pantalla la matriz
 	
-	Leer el contenido de la matriz, números de 3 cifras
+	
 
-	Almacenar la matriz por filas
+2. Comprobar si es matriz marco
+	- La suma de los elementos de la primera y última fila más la suma de la primera y última columna es mayor que la suma del resto de los elementos de la matriz.
+	- Ningún elemento se suma dos veces
 
-	Mostrar la matriz en pantalla, imprimir números de 3 cifras
-
-	Imprimir cadenas para mostrar los mensajes de petición de datos y visualización de resultados
-
-
+3. Máximo de una fila
+	- Se pide una fila por pantalla
+	- Se calculan el máximo de la fila y se muestra por pantalla con su posición (fila, columna)
+	- Sí hay varios máximos hay que mostrar las posiciones de todos ellos.
