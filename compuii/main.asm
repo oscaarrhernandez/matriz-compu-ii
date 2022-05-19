@@ -21,7 +21,6 @@ columnas: .byte 0
 filas: .byte 0
 filmax: .byte 0
 elementos: .word 0
-suma: .word 0
 imp_dim:
 	.asciz "Introduce filas x columnas\n"
 fil:
@@ -66,7 +65,6 @@ programa:
 	jsr imprime_cadena
 
 	jsr carga_mat
-	std suma
 	ldx #imp_cargamat
 	jsr imprime_cadena
 	lda filas
@@ -76,16 +74,15 @@ programa:
 	jsr imprime_cadena
 	lda filas
 	ldb columnas
-	ldd suma
 	jsr marco
 	
-	;ldx #imp_max
-	;jsr imprime_cadena
-	;jsr leer_dim
+	ldx #imp_max
+	jsr imprime_cadena
+	jsr leer_dim
 	
-	;lda columnas
-	;stb filmax
-	;jsr maximo
+	lda columnas
+	stb filmax
+	jsr maximo
 	
 acabar:
 			clra

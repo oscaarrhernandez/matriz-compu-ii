@@ -11,15 +11,41 @@ sumaExt: .word 0
 sumaInt: .word 0
 filas: .byte 0
 columnas: .byte 0
+tam: .word 0
 filimp: .byte 0
 colimp: .byte 0
 f: .byte 0
 c: .byte 0
+contador: .byte 0
+sext: .asciz "\n SUMA EXTERIOR->  "
+sint: .asciz "\n SUMA INTERIOR->  "
+simarco: .asciz "\n Es matriz marco"
+nomarco: .asciz "\n No es matriz marco"
+
 marco:
-	std sumaExt
+	ldy #m
 	sta filas
-	clra
 	stb columnas
+	mul
+	std tam
+	ldd #0
+	std contador
+	;mientras contador != tam	
+buclecarga:
+	ldd #0
+	ldd ,y++
+	
+	addd sumaExt
+	std sumaExt
+	
+	ldd contador
+	addd #1
+	std contador						
+	cmpd tam
+	bne buclecarga					
+;;;;;;;;;;;;
+	
+	
 	ldy #m
 	ldb columnas
 	lslb
@@ -28,55 +54,56 @@ marco:
 	clra
 	leay d,y; en y tenemos ya la mat[1][1]
 	ldb filas
-	decb
-	decb
+	subb #2
 	stb filimp
 	clrb
 	ldb columnas
-	decb
-	decb
+	subb #2
 	stb colimp
-	
+	clra clrb
+	ldb #0
 	buclefil:
 		ldb f
 		cmpb filimp
-		bge fin_filas
-		ldb #0
-		stb c
+		beq fin_filas
+		addb #1
+		stb f 
 		buclecol:
 		ldb c
 		cmpb colimp
-		bge fin_col
-		ldd #0
+		beq fin_col
+		addb #1
+		stb c
 		ldd ,y++
 		addd sumaInt
 		std sumaInt
-		jsr imprimir_num
-		;ldd #0
-		ldb c
-		incb
-		std c
 		bra buclecol
 	fin_col:
-		clra
-		ldb #0
-		stb c
-		ldb f
-		incb 
-		stb f
-		ldd ,y++
-		ldd ,y++
-		clra clrb
+		
+		leay 4,y
+		
 		bra buclefil
 	fin_filas:
 		clra clrb
 		ldd sumaExt
 		subd sumaInt
+		ldx #sext
+		jsr imprime_cadena
 		std sumaExt
 		jsr imprimir_num
+		ldx #sint
+		jsr imprime_cadena
 		ldd sumaInt
 		jsr imprimir_num
 		
-	
-
-rts 
+		ldd sumaExt
+		cmpd sumaInt
+		bgt esmarco
+		ldx #nomarco
+		jsr imprime_cadena
+		bra salir
+		esmarco: 
+		ldx #simarco
+		jsr imprime_cadena
+		salir:
+		rts 

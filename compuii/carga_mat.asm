@@ -18,7 +18,6 @@ contcol: .word 0
 numero: .word 0
 columnas: .byte 0
 filas: .byte 0
-sumaTotal: .word 0
 dato: .asciz"\nDato: "
 
 carga_mat:
@@ -32,9 +31,6 @@ buclecarga:
 	jsr imprime_cadena
 	jsr leer_num
 	std ,y++
-	
-	addd sumaTotal
-	std sumaTotal
 	
 	ldd contador
 	addd #1
@@ -84,10 +80,7 @@ buclefilimp:
 	stb contfilas
 	ldb #0
 	stb contcol
-	
-	
-	ldd sumaTotal
-	jsr imprimir_num
+
 	
 rts	
 	
