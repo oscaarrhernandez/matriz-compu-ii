@@ -9,27 +9,14 @@ Maneja una matriz de m·n, las dimensiones de las filas y columnas pueden ser de
 
 
 Se solicita:
+	Leer las dimensiones, 2 cifras
+	
+	Leer el contenido de la matriz, números de 3 cifras
 
-1. Leer las dimensiones de la matriz
-2. Leer el contenido de la matriz, numeros de 3 cifras
-3. Almacenar la matriz por filas
-4. Mostrar la matriz por pantalla (imprimir numeros de 3 cifras)
-5. Imprimir cadenas para mostrar mensajes de petición de datos y visualización de resultados
-6. Sumar filas y columnas 
-7. Sumar interior de la matriz 
-8. Comprobar, marco mayor que interior
-9. Matriz marco si o no
+	Almacenar la matriz por filas
 
+	Mostrar la matriz en pantalla, imprimir números de 3 cifras
 
-	- Hacer uso de subrutinas:
-
-			Leer número de 2 cifras
-			Leer número de 3 cifras
-			Imprimir numero de 3 cifras
-			Imprimir numero de 2 cifras
-			Imprimir cadena
-			Posibles subrutinas
-			Almacenar matriz
-			Mostrar matriz
+	Imprimir cadenas para mostrar los mensajes de petición de datos y visualización de resultados
 
 
