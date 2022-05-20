@@ -11,6 +11,7 @@ columnas: .byte 0
 inicio: .byte 0
 filamenos1: .byte 0
 c: .byte 0
+comp : .byte 0
 maximos: .asciz "\n Maximos: "
 maximo:
 	ldy #m
@@ -30,18 +31,27 @@ maximo:
 	std inicio
 	leay d,y
 	clra clrb
+	ldd ,y
+	std maximo
 	buclefila:
 		ldd ,y++
-		std maximo
+		std comp
 		ldb c
 		cmpb columnas
 		beq fin
 		addb #1
 		stb c
 		ldd maximo
-		jsr imprimir_num
-		
-		bra buclefila 
+		cmpd comp
+		bhi cambiarmaximo
+		bra buclefila
+
+cambiarmaximo:
+	ldd comp
+	std maximo
+	bra buclefila 
 
 fin:
+ldd maximo
+jsr imprimir_num
 rts
