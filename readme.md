@@ -27,5 +27,6 @@ Se solicita:
 Disponemos de dos .sh para facilitar la ejecución del programa. 
 El ejecutar.sh servirá para ejecutar y borrar los archivos .rel .rst .map .lst. Para que funcione deberemos poner:
 > chmod +x ejecutar.sh
+
 El borrar.sh servirá solo para borrar los archivos previamente mencionados, ya que puede ser que no desee usar el comando ejecutar y use el compilador del ensamblador
 > chmod +x borrar.sh
