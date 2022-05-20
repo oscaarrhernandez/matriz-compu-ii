@@ -4,6 +4,8 @@
 
 *Jaime Castellanos Rubio - 71047797S*
 
+__Nota:__ 
+
 ## Enunciado
 Maneja una matriz de m·n, las dimensiones de las filas y columnas pueden ser de hasta 99. Los numeros de la matriz hasta 999.
 
