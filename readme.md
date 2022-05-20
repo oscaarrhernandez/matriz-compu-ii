@@ -23,7 +23,7 @@ Se solicita:
 	- Se calculan el máximo de la fila y se muestra por pantalla con su posición (fila, columna)
 	- Sí hay varios máximos hay que mostrar las posiciones de todos ellos.
 
-## Ejecucion
+## Ejecución
 Disponemos de dos .sh para facilitar la ejecución del programa. 
 El ejecutar.sh servirá para ejecutar y borrar los archivos .rel .rst .map .lst. Para que funcione deberemos poner:
 > chmod +x ejecutar.sh
