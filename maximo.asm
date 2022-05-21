@@ -94,7 +94,12 @@ imppos:
 	jsr imprimir_num
 	clra clrb
 	ldb c
+	addb #1
+	stb c
 	jsr imprimir_num
+	ldb c 
+	subb #1
+	stb c
 	bra sig
 
 fin:
