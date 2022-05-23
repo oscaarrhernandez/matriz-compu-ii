@@ -45,7 +45,7 @@ buclecarga:
 	bne buclecarga					
 ;;;;;;;;;;;;
 	
-	
+
 	ldy #m
 	ldb columnas
 	lslb
@@ -61,7 +61,7 @@ buclecarga:
 	subb #2
 	stb colimp
 	clra clrb
-	ldb #0
+	ldb #1
 	buclefil:
 		ldb f
 		cmpb filimp
@@ -74,14 +74,15 @@ buclecarga:
 		beq fin_col
 		addb #1
 		stb c
+		ldd #0
 		ldd ,y++
 		addd sumaInt
 		std sumaInt
 		bra buclecol
 	fin_col:
-		
 		leay 4,y
-		
+		ldb #0
+		stb c
 		bra buclefil
 	fin_filas:
 		clra clrb
