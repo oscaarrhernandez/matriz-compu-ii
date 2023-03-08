@@ -1,8 +1,8 @@
 # Practica Final Computadores 2
 
-*Óscar Hernández Hernández - 70918137Y*
+*Óscar Hernández Hernández *
 
-*Jaime Castellanos Rubio - 71047797S*
+*Jaime Castellanos Rubio *
 
 __Nota:__ **10**
 
